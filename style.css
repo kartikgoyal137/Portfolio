@@ -22,12 +22,12 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 1000;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
-    padding: 25px 9%;
+    padding: 10px 9%;
     background-color: #1f242d;
 }
 
@@ -62,7 +62,8 @@ a {
     padding: 60px 9% 0;
     height: 100vh;
     z-index: 50;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .start h1 {
@@ -215,6 +216,7 @@ a {
     font-weight: 600;
     transition: 0.5s;
     color: #1f242d;
+    overflow: auto;
 }
 
 .contact a:hover {
@@ -263,10 +265,16 @@ a {
     .navbar {
         flex-direction: column;
         justify-content: center;
+        padding: 0;
+        position: relative;
     }
 
     .home, .about, .contact, .interest, .navbar {
         transform: scale(0.8)
+    }
+
+    .contact {
+        transform: scale(0.6);
     }
 
     .home img {
@@ -289,6 +297,25 @@ a {
     .about p {
         margin-top: 10px;
     }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: none;
+        
+    }
+
+    .navbar ul li {
+        margin-top: 7px;
+        align-self: center;
+        margin: none;
+    }
+
+    .home {
+        padding-top: 0px;
+    }
+
 }
 
 
