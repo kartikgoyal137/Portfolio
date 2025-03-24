@@ -32,7 +32,7 @@ a {
 }
 
 .navbar .logo {
-    font-size: 2.5vw;
+    font-size: clamp(2rem, 2.5vw, 3rem);
     font-weight: 600;
 }
 
@@ -46,7 +46,7 @@ a {
 }
 
 .navbar ul li a {
-    font-size: 1.5vw;
+    font-size: clamp(1.25rem, 1.5vw, 2rem);
     font-weight: 500;
     transition: 0.5s;
 }
@@ -67,39 +67,90 @@ a {
 }
 
 .start h1 {
-    font-size: 4vw;
+    font-size: clamp(2.5rem, 4vw, 5rem);
 }
 .start h2 {
-    font-size: 2.5vw;
+    font-size: clamp(2rem, 2.5vw, 4rem);
     margin-top: 20px;
 }
 .start p {
-    font-size: 1.5vw;
+    font-size: clamp(1.2rem, 1.3vw, 3rem);
     margin: 5px 0 1vw;
 }
 
-.img img {
+
+@keyframes alias1 {
+    0% {
+
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
+@keyframes alias2 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 100%;
+    }
+}
+
+.img .cont {
+    position: relative;
     width: 22vw;
     height: 22vw;
-    object-fit: cover;
+    
     margin-left: 20%;
     border-radius: 50%;
-    border: 5px solid #7cf03d;
+    border: 3px solid #7cf03d;
+    overflow: hidden;
+}
+
+#kartik {
+    position: absolute;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    animation-name: alias1;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    animation-direction: alternate-reverse;
+    z-index: 40;
+}
+
+#kirito {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    animation-name: alias2;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    animation-direction: alternate-reverse;
+    z-index: 50;
 }
 
 .about {
     display: flex;
     background-color: #1f242d;
     padding: 2vw 9% 0 9%;
-    height: 30vh;
+    height: auto;
     align-items: center;
     z-index: 50;
+    margin-bottom: 4em;
     overflow: auto;
 }
 
 .about div {
     color: #7cf03d;
-    font-size: 2.5vw;
+    font-size: clamp(2rem, 2.5vw, 3rem);
     margin-right: 30px;
     top: 100px;
 }
@@ -107,7 +158,7 @@ a {
 .about p {
     margin-left: 30px;
     color: white;
-    font-size: 1.5vw;
+    font-size: clamp(1.3rem, 1.5vw, 3rem);
 }
 
 
@@ -115,16 +166,17 @@ a {
     display: flex;
     background-color: #1f242d;
     padding: 0px 9% 0;
-    height: 70vh;
+    height: auto;
+    
     align-items: center;
     flex-direction: column;
     z-index: 50;
-    overflow: auto;
+    margin-bottom: 4em;
 }
 
 .interest .head {
     color: #7cf03d;
-    font-size: 2.5vw;
+    font-size: clamp(2rem, 2.5vw, 3rem);
     margin-right: 20px;
     margin-bottom: 50px;
     padding-left: 65px;
@@ -139,7 +191,7 @@ a {
 }
 
 .interest .topic .namet {
-    font-size: 1.8vw;
+    font-size: clamp(1.5rem, 1.5vw, 3rem);
     box-shadow: #7cf03d;
     background-color: #7cf03d;
     border-radius: 30px;
@@ -164,11 +216,10 @@ a {
     display: flex;
     margin-top: 30px;
     justify-content: center;
-
 }
 
 .interest .details p {
-    font-size: 1.2vw;
+    font-size: clamp(1.3rem, 1.5vw, 3rem);
     background-color: #1f242d;
     font-weight: 400;
     color: white;
@@ -188,15 +239,15 @@ a {
 
 .contact div {
     color: #7cf03d;
-    font-size: 2vw;
+    font-size: clamp(1.6rem, 2vw, 3rem);
     margin-right: 30px;
     top: 100px;
+    
 }
 
 .contact {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .contact a {
@@ -205,7 +256,7 @@ a {
     border: 2px solid #7cf03d;
     box-shadow: 0 0 7px #7cf03d;
     padding: 5px 15px;
-    font-size: 1.5vw;
+    font-size: clamp(1rem, 1.5vw, 3rem);
     font-weight: 600;
     transition: 0.5s;
     color: #1f242d;
@@ -249,37 +300,32 @@ a {
     }
 
     .interest .topic .namet {
-        width: 30vw;
+        width: auto;
         text-align: center;
     }
 
     .interest .details {
         flex-direction: column;
         gap: 15px;
+        padding: 0;
+        margin: 0;
     }
 
-    .interest .details p {
-        font-size: 2vw;
+    .interest .head {
+        margin-right: 0;
+        padding-left: 0;
     }
 
     .logo {
         margin-bottom: 15px;
     }
-    
-    .navbar {
-        flex-direction: column;
-        justify-content: center;
-        padding: 0;
-        position: relative;
-    }
 
-    .home img {
+    .home .img .cont {
         margin-left: 0%;
     }
 
     .about {
         flex-direction: column;
-
     }
 
     .about div {
@@ -294,6 +340,14 @@ a {
 
     }
 
+    .navbar {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        position: relative;
+    }
+
     .navbar ul {
         flex-direction: column;
         align-items: center;
@@ -304,12 +358,25 @@ a {
 
     .navbar ul li {
         margin-top: 7px;
-        align-self: center;
-        margin: none;
+        margin-left: 0;
     }
 
     .home {
         padding-top: 0px;
+    }
+
+    .contact {
+        margin-top: auto;
+        flex-direction: column;
+    }
+
+    .contact div {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .navbar .logo {
+        padding-top: 5px;
     }
 
 }
