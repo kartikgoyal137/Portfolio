@@ -427,6 +427,10 @@ a {
     }
 
 }
-
+@media (max-width: 465px) {
+    .home .img .cont {
+        top: 12vw;
+    }
+}
 
 
